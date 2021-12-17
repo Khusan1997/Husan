@@ -25,6 +25,16 @@ const routes = [
     component: () => import('@/views/info/pupil'),
   },
   {
+    path: '/info/teacher/edit',
+    name: 'editteacher',
+    component: () => import('@/views/info/teacher/edit.vue'),
+  },
+  {
+    path: '/info/teacher',
+    name: 'teacher',
+    component: () => import('@/views/info/teacher'),
+  },
+  {
     path: '/info/pupil/edit',
     name: 'editpupil',
     component: () => import('@/views/info/pupil/edit.vue'),

@@ -1,5 +1,5 @@
 <template>
-  <v-row>
+  <!-- <v-row>
     <v-col
       cols="12"
       md="4"
@@ -105,7 +105,24 @@
     <v-col cols="12">
       <dashboard-datatable></dashboard-datatable>
     </v-col>
-  </v-row>
+  </v-row> -->
+  <div>
+    <v-row>
+      <v-col cols="12" md="12">
+        <div>
+        <apexchart width="700" type="bar" :options="options1" :series="series1"></apexchart>
+        </div>
+      </v-col>
+      
+    </v-row>
+    <v-row>
+      <v-col>
+        <div>
+      <apexchart width="450" type="donut" :options="options" :series="series"></apexchart>
+    </div>
+      </v-col>
+    </v-row>
+  </div>
 </template>
 
 <script>
@@ -121,7 +138,7 @@ import DashboardCardDepositAndWithdraw from './DashboardCardDepositAndWithdraw.v
 import DashboardCardSalesByCountries from './DashboardCardSalesByCountries.vue'
 import DashboardWeeklyOverview from './DashboardWeeklyOverview.vue'
 import DashboardDatatable from './DashboardDatatable.vue'
-
+import VueApexCharts from 'vue-apexcharts'
 export default {
   components: {
     StatisticsCardVertical,
@@ -176,6 +193,23 @@ export default {
       totalSales,
       newProject,
       salesQueries,
+      options: {
+         series: [44, 55, 13, 33],
+  labels: ['Oltin', 'Kumush', 'Bronza', 'G`olib','Mag`lubiyat']
+      },
+      series: [44,55,41,17,15],
+       options1: {
+        chart: {
+          id: 'vuechart-example'
+        },
+        xaxis: {
+          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998,1999,2000,2001,2002,2003,2004,2005]
+        }
+      },
+      series1: [{
+        name: 'Ma`lumot',
+        data: [30, 40, 45, 50, 49, 60, 70, 75,78,83,85,88,91]
+      }]
     }
   },
 }

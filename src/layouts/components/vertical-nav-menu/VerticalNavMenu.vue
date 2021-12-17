@@ -58,16 +58,21 @@
            :icon="icons.mdiFormatAlignJustify "
         ></nav-menu-link>
        <nav-menu-link
-          title="Pupil"
+          title="O'quvchi qabul qilish"
           :to="{ name: 'pupil' }"
            :icon="icons.mdiAccountCogOutline"
         ></nav-menu-link>
+         <nav-menu-link
+          title="O'qituvchi qabul qilish"
+          :to="{ name: 'teacher' }"
+           :icon="icons.mdiAccountCogOutline"
+        ></nav-menu-link>
       
-      <nav-menu-group
+      <!-- <nav-menu-group
         title="Pages"
         :icon="icons.mdiFileOutline"
       >
-        <!-- <nav-menu-link
+        <nav-menu-link
           title="Login"
           :to="{ name: 'pages-login' }"
           target="_blank"
@@ -81,7 +86,7 @@
           title="Error"
           :to="{ name: 'error-404' }"
           target="_blank"
-        ></nav-menu-link> -->
+        ></nav-menu-link>
          <nav-menu-link
           title="SchoolAdmission"
           :to="{ name: 'schooladmision' }"
@@ -98,8 +103,8 @@
           title="StudentSchoolMovement"
           :to="{ name: 'studentschoolmovement' }"
         ></nav-menu-link>
-      </nav-menu-group>
-      <nav-menu-section-title title="USER INTERFACE"></nav-menu-section-title>
+      </nav-menu-group> -->
+      <!-- <nav-menu-section-title title="USER INTERFACE"></nav-menu-section-title>
       <nav-menu-link
         title="Typography"
         :to="{ name: 'typography' }"
@@ -124,13 +129,12 @@
         title="Form Layouts"
         :to="{ name: 'form-layouts' }"
         :icon="icons.mdiFormSelect"
-      ></nav-menu-link>
+      ></nav-menu-link> -->
     </v-list>
   </v-navigation-drawer>
 </template>
 
 <script>
-// eslint-disable-next-line object-curly-newline
 import {
   mdiHomeOutline,
   mdiAlphaTBoxOutline,
