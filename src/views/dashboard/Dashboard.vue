@@ -108,18 +108,33 @@
   </v-row> -->
   <div>
     <v-row>
-      <v-col cols="12" md="12">
+      <v-col cols="12" md="6">
+       <v-card>
+          <div>
+          <apexchart class="p-3" width="600" type="bar" :options="options1" :series="series1"></apexchart>
+        </div>
+       </v-card>
+      </v-col>
+      <v-col cols="12" md="6">
         <div>
-        <apexchart width="700" type="bar" :options="options1" :series="series1"></apexchart>
+         <v-card> <apexchart class="p-3" width="600" type="area" :options="options1" :series="series1"></apexchart></v-card>
         </div>
       </v-col>
-      
     </v-row>
     <v-row>
       <v-col>
         <div>
-      <apexchart width="450" type="donut" :options="options" :series="series"></apexchart>
-    </div>
+         <v-card>
+            <apexchart class="p-3" width="550" type="donut" :options="options" :series="series"></apexchart>
+         </v-card>
+        </div>
+      </v-col>
+      <v-col>
+        <div>
+          <v-card>
+               <apexchart class="p-3" width="600" type="line" :options="options1" :series="series1"></apexchart>
+          </v-card>
+        </div>
       </v-col>
     </v-row>
   </div>
@@ -194,22 +209,27 @@ export default {
       newProject,
       salesQueries,
       options: {
-         series: [44, 55, 13, 33],
-  labels: ['Oltin', 'Kumush', 'Bronza', 'G`olib','Mag`lubiyat']
+        series: [44, 55, 13, 33],
+        labels: ['Oltin', 'Kumush', 'Bronza', 'G`olib', 'Mag`lubiyat'],
       },
-      series: [44,55,41,17,15],
-       options1: {
+      series: [44, 55, 41, 17, 15],
+      options1: {
         chart: {
-          id: 'vuechart-example'
+          id: 'vuechart-example',
         },
         xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998,1999,2000,2001,2002,2003,2004,2005]
-        }
+          categories: [
+            1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008,
+            2009, 2010, 2011, 2012, 2013, 2014,
+          ],
+        },
       },
-      series1: [{
-        name: 'Ma`lumot',
-        data: [30, 40, 45, 50, 49, 60, 70, 75,78,83,85,88,91]
-      }]
+      series1: [
+        {
+          name: 'Ma`lumot',
+          data: [30, 40, 45, 50, 49, 60, 70, 75, 78, 83, 85, 88, 91, 89, 81, 83, 79, 85, 86, 84, 92, 95, 87],
+        },
+      ],
     }
   },
 }
