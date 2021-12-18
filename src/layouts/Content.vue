@@ -1,12 +1,12 @@
 <template>
   <v-app>
-    <vertical-nav-menu :is-drawer-open.sync="isDrawerOpen"></vertical-nav-menu>
+    <vertical-nav-menu ></vertical-nav-menu>
 
     <v-app-bar app flat absolute color="#F4F5FA" fixed="top" style="position:fixed">
       <div class="boxed-container w-full">
         <div class="d-flex align-center mx-6">
           <!-- Left Content -->
-          <v-app-bar-nav-icon class="d-block d-lg-none me-2" @click="isDrawerOpen = !isDrawerOpen"></v-app-bar-nav-icon>
+          <v-app-bar-nav-icon class="d-block d-lg-none me-2" ></v-app-bar-nav-icon>
           <!-- <v-text-field
             rounded
             dense
@@ -115,10 +115,10 @@ export default {
     AppBarUserMenu,
   },
   setup() {
-    const isDrawerOpen = ref(null)
+    // const isDrawerOpen = ref(null)
 
     return {
-      isDrawerOpen,
+      // isDrawerOpen,
 
       // Icons
       icons: {
@@ -129,13 +129,13 @@ export default {
     }
   },
   methods: {
-    async changeLanguage(lang) {
-      let el = document.getElementsByClassName('pt-0 dropdown-menu show')
-      // el[0].classList.remove('show')
-      this.$i18n.locale = lang || 'uz_latn'
-      this.$forceUpdate()
-      // window.location.reload()
-    },
+    // async changeLanguage(lang) {
+    //   let el = document.getElementsByClassName('pt-0 dropdown-menu show')
+    //   // el[0].classList.remove('show')
+    //   this.$i18n.locale = lang || 'uz_latn'
+    //   this.$forceUpdate()
+    //   // window.location.reload()
+    // },
   },
 }
 </script>

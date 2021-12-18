@@ -6,6 +6,7 @@ import vuetify from './plugins/vuetify'
 import router from './router'
 import store from './store'
 import axios from 'axios'
+import VueAxios from 'vue-axios'
 import i18n from '../src/i18n/index'
 import DatePicker from 'vue2-datepicker'
 import 'vue2-datepicker/index.css'
@@ -21,13 +22,15 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.component('apexchart', VueApexCharts)
 Vue.config.productionTip = false
-Vue.use(axios)
+Vue.use(VueAxios, axios)
 Vue.component('date-picker', DatePicker)
+axios.defaults.baseURL = 'https://erp-develope.maktab.uz/GSP/GetPersonInfo'
 axios.interceptors.request.use(request => requestInterceptor(request))
 const requestInterceptor = request => {
   request.withCredentials = true
   return request
 }
+
 new Vue({
   router,
   store,

@@ -56,9 +56,38 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(item,index) in array2" :key="index">
+                <tr v-for="(item,index) in desserts" :key="index">
                   <td class="text-center">
                     {{ index +1}}
+                  </td>
+                  <td class="text-center">
+                    {{ item.docnumber }}
+                  </td>
+                   <td class="text-center">
+                    {{ item.docdate }}
+                  </td>
+                  <td class="text-center">
+                    {{ item.finyear }}
+                  </td>
+                  <td class="text-center">
+                    {{ item.schoolgrade }}
+                  </td>
+                  <!-- <td class="text-center">
+                    {{ telefon }}
+                  </td> -->
+                    <td  class="text-center">
+                    {{ item.pupil }}
+                  </td>
+                  <!-- <td class="text-center">
+                    <v-chip small :color="statusColor[status[status]]" class="font-weight-medium">
+                      {{ status[status] }}
+                    </v-chip>
+                  </td> -->
+                  <!-- <td class="text-center"> <v-icon @click="Edit">{{ icons.mdiPencil }}</v-icon><v-icon @click="Delete">{{icons.mdiDelete }}</v-icon></td> -->
+                </tr>
+                <tr v-for="(item,index) in array2" :key="index">
+                  <td class="text-center">
+                    {{ index +4}}
                   </td>
                   <td class="text-center">
                     {{ item.docnumber }}
@@ -119,26 +148,27 @@ export default {
       /* eslint-enable key-spacing */
     }
     const desserts = [
-      // {
-      //   id: 1,
-      //   docnumber: '001',
-      //   docdate: '06.09.2021',
-      //   finyear: '2021/2022',
-      //   schoolgrade: '1-sinf',
-      //   pupilquantity: 1,
-      //   pupil: "Javlonova Gulmira Baxtiyor qizi",
-      //   status: 1,
-      // },
-      //  {
-      //   id: 1,
-      //   docnumber: '002',
-      //   docdate: '05.09.2021',
-      //   finyear: '2021/2022',
-      //   schoolgrade: '5-sinf',
-      //   pupilquantity: 2,
-      //   pupil: "Dadamirzayev Xurshidbek Davron o'g'li, Ismoilov Shohjahon Zuxriddin o'g'li",
-      //   status: 1,
-      // },
+      {
+        docnumber: '001',
+        docdate: '06.09.2021',
+        finyear: '2021/2022',
+        schoolgrade: 'Yakkakurash sport turlari',
+        pupil: "O`rinova Elmira Jahongirovna",
+      },
+       {
+        docnumber: '002',
+        docdate: '05.09.2021',
+        finyear: '2021/2022',
+        schoolgrade: 'Sport O`yinlari',
+        pupil: "Dadamirzayev Shahobjon Jo`raqulovich",
+      },
+       {
+        docnumber: '003',
+        docdate: '12.09.2021',
+        finyear: '2021/2022',
+        schoolgrade: 'Xorijiy tillar',
+        pupil: "Avazovna Shahzoda Mansurovna",
+      },
     ]
 
     return {

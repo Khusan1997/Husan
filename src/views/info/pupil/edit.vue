@@ -407,7 +407,7 @@ export default {
     },
     SaveInfo() {
       this.array.push(this.local)
-      localStorage.setItem('array', JSON.stringify(this.array))
+      localStorage.setItem('array',JSON.stringify(this.array))
       // localStorage.setItem('surname', this.surname)
       // localStorage.setItem('familyname', this.familyname)
       // localStorage.setItem('name', this.name)
