@@ -24,7 +24,8 @@ Vue.component('apexchart', VueApexCharts)
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 Vue.component('date-picker', DatePicker)
-axios.defaults.baseURL = 'https://erp-develope.maktab.uz/GSP/GetPersonInfo'
+axios.defaults.baseURL = 'https://erp-develope.maktab.uz/GSP/GetPersonInfo';
+axios.defaults.baseURL = "http://kids-api.motas.uz/";
 axios.interceptors.request.use(request => requestInterceptor(request))
 const requestInterceptor = request => {
   request.withCredentials = true

@@ -29,7 +29,7 @@
           >
         </v-col>
         <v-col>
-          <v-text-field dense label="Seriya" outlined></v-text-field>
+          <v-text-field dense label="Seriya" v-model="filter.Seria" outlined></v-text-field>
           <!-- <v-select
             v-model="search"
             :items="seriya"
@@ -45,18 +45,20 @@
         </v-col>
         <v-col>
           <!-- <b-form-input ></b-form-input> -->
-          <v-text-field dense label="Raqam" outlined v-model="filter.docnumber"></v-text-field>
+          <v-text-field dense label="Raqam"  v-model="filter.Number" outlined ></v-text-field>
           <!-- <b-form-input v-model="filter.docnumber"></b-form-input> -->
         </v-col>
         <v-col>
-          <b-form-datepicker
+          <!-- <b-form-datepicker
             style="min-height: 40px"
             class="mt-0 pt-0"
+            v-model="filter.DateOfBirth"
             :date-format-options="{ year: 'numeric', month: 'numeric', day: 'numeric' }"
             id="example-datepicker"
             placeholder="Tu`gilgan kuni"
             autocomplete="off"
-          ></b-form-datepicker>
+          ></b-form-datepicker> -->
+          <v-text-field dense label="date"  v-model="filter.DateOfBirth" outlined ></v-text-field>
         </v-col>
         <v-col>
           <v-btn @click="show" color="primary"
@@ -181,6 +183,7 @@ import {
   mdiCheck,
   mdiArrowLeft,
 } from '@mdi/js'
+import OtherService from "@/services/other.service";
 export default {
   data() {
     return {
@@ -205,6 +208,11 @@ export default {
       search: {},
       filter: {
         docnumber: '',
+      },
+      filter : {
+        Seria : "",
+        Number : 0,
+        DateOfBirth : "",
       },
       array: [],
       local: {
@@ -242,25 +250,26 @@ export default {
     }
   },
 
-  created() {},
+  created() {
+    OtherService.Get()
+      .then((res) => {
+        this.show = false;
+        this.local = res.data;
+      })
+      .catch((error) => {
+        this.$makeToast(error.response.data.error, "danger");
+      });
+  },
   methods: {
     show() {
-      // if (this.filter.docnumber == '9220671') {
-
-      //   this.local.surname = 'Javlonova'
-      //   this.local.name = 'Gulmira'
-      //     this.local.familyname = 'Baxtiyor qizi'
-      //     this.local.datebirth = '26.01.2002'
-      //     this.local.gender = 'Ayol'
-      //     this.local.millati = 'O`zbek'
-      //     this.local.fuqaroligi = 'O`zbekiston'
-      //     this.local.inn = '597686618'
-      //     this.local.jshshir = '30124523800015'
-      //     this.local.viloyat = 'Sirdayo'
-      //     this.local.tuman = 'Sayxunobod'
-      //     this.local.berilanSana = '04.04.2018'
-      //     this.local.amalQilishMuddati = '04.04.2028'
-      // }
+       OtherService.Post(this.filter)
+      .then((res) => {
+        this.show = false;
+        this.local = res.data;
+      })
+      .catch((error) => {
+        this.$makeToast(error.response.data.error, "danger");
+      });
       var self = this
       if (self.filter.docnumber == '9220671') {
         self.local.surname = 'Javlonova'
